@@ -1,0 +1,4 @@
+FILE(GLOB ALL_HANDLERS *.cpp)
+FILE(GLOB ALL_HANDLERS_H *.hpp)
+
+add_library(all_handlers STATIC ${ALL_HANDLERS} ${ALL_HANDLERS_H})

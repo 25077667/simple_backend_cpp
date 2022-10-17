@@ -1,7 +1,7 @@
 #include <server.hpp>
 
-int main()
-{
+int main() {
     Server s;
+    s.run();
     return 0;
 }
