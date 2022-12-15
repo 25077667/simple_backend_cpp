@@ -1,4 +1,4 @@
-# Simple web app in C++
+# Simple backend app in C++
 
 ## Dependencies:
 ```
