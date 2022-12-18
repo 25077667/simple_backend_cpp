@@ -3,15 +3,15 @@
 ## Dependencies:
 ```
 cmake
-conan
+ninja
+mold
 ```
 A C++ compiler which is supporting C++20.
 
 ## Build:
 ```
-mkdir build
-conan install conanfile.txt --install-folder=build --build=missing
-cd build
-cmake ..
-make
+git submodule update --init --recursive
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_LINKER=$(which mold) ../engine -G Ninja && \
+ninja -v
 ```

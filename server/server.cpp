@@ -1,4 +1,5 @@
-#include <global_handler.hpp>
+#include <filesystem>
+#include <handlers/global_handler.hpp>
 #include <server.hpp>
 
 struct Server::Impl : public drogon::HttpController<Server::Impl> {
@@ -14,6 +15,9 @@ Server::Server() : pImpl{std::make_unique<Server::Impl>()} {
 Server::~Server() {}
 
 void Server::run(int port) const {
+    if (!std::filesystem::exists(std::filesystem::path("./log/")))
+        std::filesystem::create_directories("./log/");
+
     drogon::app()
         .setLogPath("./log/")
         .setLogLevel(trantor::Logger::kWarn)
