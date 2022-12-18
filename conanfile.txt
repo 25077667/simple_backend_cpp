@@ -1,5 +1,0 @@
-[requires]
-drogon/1.8.0
-
-[generators]
-cmake
