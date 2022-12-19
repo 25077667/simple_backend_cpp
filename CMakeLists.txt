@@ -7,6 +7,9 @@ set(CMAKE_CXX_STANDARD 20)
 set (MY_CXX_FLAGS "-Wno-error=restrict -pthread -fcoroutines")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${MY_CXX_FLAGS}")
 
+set(CMAKE_CXX_FLAGS_DEBUG_INIT "-O0 -ggdb -fsanitize=address")
+set(CMAKE_CXX_FLAGS_RELEASE "-Ofast -s -flto=auto -Bstatic")
+
 option (FORCE_COLORED_OUTPUT "Always produce ANSI-colored output (GNU/Clang only)." TRUE)
 if (${FORCE_COLORED_OUTPUT})
     if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
@@ -16,7 +19,7 @@ if (${FORCE_COLORED_OUTPUT})
     endif ()
 endif ()
 
-add_subdirectory(third_party/drogon)
 add_subdirectory(server)
 add_executable(simple-web main.cpp)
+add_subdirectory(drogon)
 target_link_libraries(simple-web PRIVATE server drogon)
