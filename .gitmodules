@@ -1,3 +1,6 @@
 [submodule "drogon"]
 	path = drogon
 	url = https://github.com/drogonframework/drogon.git
+[submodule "Django_cpp"]
+	path = Django_cpp
+	url = https://github.com/25077667/Django_cpp.git
