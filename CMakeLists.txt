@@ -21,8 +21,6 @@ endif ()
 
 add_subdirectory(server)
 add_executable(simple-web main.cpp)
-add_subdirectory(src)
 add_subdirectory(Django_cpp)
-add_subdirectory(handlers)
 add_subdirectory(drogon)
 target_link_libraries(simple-web PRIVATE server drogon Django)
